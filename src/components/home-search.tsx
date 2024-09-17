@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { getRecommendations } from "@/lib/getRecommendations"; // Assuming this function uses `fetch`
 
 export default function SearchBar() {
   const router = useRouter();
@@ -38,10 +37,16 @@ export default function SearchBar() {
     const timer = setTimeout(async () => {
       try {
         // Fetch recommendations with the signal for cancellation
-        const data = await getRecommendations(inputQuery as string, {
-          signal: controller.signal,
-        });
-        const fetchedRecommendations = data[1];
+        const res = await fetch(
+          `https://www.google.com/complete/search?client=firefox&q=${inputQuery}`,
+          {
+            signal: controller.signal,
+          }
+        );
+
+        const json = await res.json();
+
+        const fetchedRecommendations = json[1];
 
         setRecommendations(fetchedRecommendations);
 
@@ -49,7 +54,7 @@ export default function SearchBar() {
         cache.current.set(inputQuery, fetchedRecommendations);
         console.log("Fetched from API and cached:", fetchedRecommendations);
       } catch (error) {
-        if (error.name === "AbortError") {
+        if (error) {
           console.log("Request aborted for:", inputQuery);
         } else {
           console.error("Error fetching recommendations:", error);

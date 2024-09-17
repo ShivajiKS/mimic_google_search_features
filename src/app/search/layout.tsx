@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+
 import SearchOptions from "@/components/search-options";
 import SearchBar from "@/components/search-bar";
 import type { Metadata } from "next";
