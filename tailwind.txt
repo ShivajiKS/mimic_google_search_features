@@ -1,0 +1,178 @@
+ customization in two places : 
+        1. input stylesheet(css)
+        2. tailwind congig file(javascript)
+
+some things you can only do in css like importing some fonts or using google fonts, you can't include that in the tailwind config file, you have to do it using css and at the same time there are some things you can only do using javascript like import all the colors from your design system and including some plugins, those are the things which are meant for the javascript.
+
+Good rules : 
+1. whenever possible just add it in html in your markup.
+example : <div className="bg-[#1b2a38] p-[20]"> vyshnavi </div>
+
+Note : it feels like dirty or inline style but it is best. 
+
+2. very long class names : sometime you need same type of styles. again and again write same long class names is overwhelming that's why, you can abstract it into components and use it and override it.
+use apply directive and put all of that in some class and call it. 
+keep in mind : you can't override the gradients with bg-colors.
+- it just goes on getting more complicated so best thing is to leave it as it is, yes it looks like cluttered. if it's bothers you so much, there are plugins to hide it called "inline fold" plugin in vs code, you can use those so you won't be able see the class names while you're coding, only when you hover you'll see the class names. trust me its going to get more maintainable, if you do it this way.
+
+3. if it's easier in css, do it in css and not in javascript.
+
+
+
+
+
+one thing that's is important is that tailwind does not bundle all of these class names by default, on build time they look at which colors or variables you're using and whatever you're not using, they simply strip out so it's not that it's suddenly creates a bloated css file.
+
+
+define your own classes within the theme section by not using extend section but by adding them as the root property of the object.
+ 
+theme: {
+    colors: { primary: "#ff0000" },
+    spacing:{},
+    fontSize:{},
+    fontFamily:{},
+    extend:{},
+}  
+
+Note : this way, we can create a own design system, but built-in tailwind classes are not available.
+colors: {
+    primary: "#ff0000",
+      gray: {
+        100: "#f7f7f7",
+        200: "#f8f8f8",
+      },
+},
+
+your building  a way more consistent design system and if one day another will take over, this project they simply know which colors are part of design system and which they shouldn't use and then you can ofcourse do exactly the same for spacing, create a your own custome spacing scale and the same things for fonts sizes and font family instead of using what tailwind by default offers, you simply create your own varients.
+
+don't start to rest and remove everything from tailwind because all these other classes liek flex box or grid are really useful and don't necessarily change anything that's part of your design system. just utilities that you use to build your page but specific things like colors and spacing, they can make a website more consistent.
+
+if you need some classes :
+color:({colors})=>({
+  primary: "#ff0000",
+   gray: colors.blue
+})
+
+key points :
+if you put something on extend section, then those classes and built-in classes are available(not overriding)
+
+if you put something directly on theme section and then those classes are available and built-in classes are not available (overriding).
+
+
+1. container : 
+by default the container is not centered and no padding, margin
+class : container mx-auto px-4 
+
+Note : Instead of adding for every element, you can set it in tailwind config
+theme:{
+    container:{
+        center:true,
+        padding:1rem
+        margin:auto
+    },
+    extend:{
+    }
+}
+
+
+2. size : it set the both height and width at the same time.
+    size-2 
+
+3. divide : you can divide the elements either vertical or horizontial. add the divide class to the parent elememt instead of adding border for multiple elememts to seperate the elements.
+    divide-x-2
+    divide-teal-400
+
+4. space-x-2 : add the spacing either vertical or horizontial for group of non flex or grid elements. it is really useful if you want space things out, if you are not using grid or flex which has Gap utility. no need to add margin for every individual element. just put it in parent element and adds it to all child elements
+
+5. line-clamp : minimize the number of lines
+
+6. truncate : text will never wrap on more than one line(1 line only)
+
+
+7. gradient : 
+bg-gradient-to-r(from left to right) : direction
+from : where from my gradient starts
+to : where we wanted to end
+via : in between colors 
+from-20
+via-90
+to-60
+
+
+8. ring : ring class allow to use box shadow, acutallly add a different ring around your element and similar to outline class.
+ring-2
+ring-teal-500
+
+
+9. tailwind typography plugin : it allows to create a markdown file and make it absolutely beatifull without writting any css at all. 
+prose
+lg:prose-lg 
+
+
+
+10. line height shorthand for font size utility : 
+    syntax -- text-[font-size]/[leading]
+    example --
+    without shorthand : <div class="text-lg leading-8">Hey Vyshnavi...</div>
+    with shorthand : <div class="text-lg/8">Hey Vyshnavi...</div>
+
+11. css variables without var() method : 
+    <div class="bg-[--brand-color]">Hey Vyshnavi...</div>
+
+12. new list style image utility : 
+    <ul class="list-image-[url(images/cat.png)]">
+         <li>Hey Vyshnavi..</li>
+    </ul>
+
+13. new hyphens utility : 
+    hyphens-auto 
+
+14. grid cols with arbitrary values : 
+
+
+
+
+1. 
+An impatient person may switch jobs frequently without learning anything useful or building a stable career.
+
+An impatient person may also rush into a relationship without knowing their partner well and end up with problems and regrets.
+
+An impatient person may also try to lose weight or get fit quickly without following a healthy and sustainable plan and end up with disappointment and health issues.
+
+We need patience in every aspect of life. 
+
+When we want to achieve something in life, we should first understand the process and then work toward it patiently.
+
+
+Let us not be in hurry to get everything we want, but rather work hard and wait for the right time.
+
+Let us not be frustrated by the obstacle we face, but rather overcome them with perseverance and wisdom.
+
+Let us not be disappointed by the results we get, but rather appreciate the efforts we made.
+
+Let us be patient with ourselves and others and enjoy the journey of life, because patience is the key to success and happiness.
+
+
+
+
+2. 
+If we see in our lives, we will find that lying is not always wrong, but it depends on the intention behind it.
+
+a lie is a bad thing, if it is meant to help someone such as saving someone's life or motivating someone to improve themesleves.
+
+if someone is bad and we call them bad, then it can hurt their feelings, but instead of callling them bad, if we can tell them that, they are good and they can be better if they follow right path, then it can inspire them to change.
+
+this is not a lie, but a way of spotting and guiding them towards a better path.
+
+a lie becomes crime only when it is meant to harm or decive someone with malicious intent, 
+
+therefore, we can say that the morality of our action depends on its underlying purpose. the intent behind our actions hold significant weight in determining whether an act is virtuous or otherwise.
+
+the story also teaches us the importance of forgiveness, we all are humans and humans make mistakes. 
+when someone sincerly ask for forgiveness, we should forgive them as a human gesture.
+we should be compassionate towards others, knowing that mistakes are a part of being in human and we all have made some mistakes at somepoint in our lifes, 
+therefore we should always remember that a lie is not a crime if it serves a noble cause and being truly great means not judging others but showing kindness by forgiving them when they feel sorry   
+
+
+
+
