@@ -27,13 +27,13 @@ const SearchBar = () => {
     <div className="mt-5">
       <form
         onSubmit={onSearch}
-        className="w-full max-w-[90%] sm:max-w-2xl mt-10 rounded-2xl flex items-center space-x-3 px-4 py-3 border-[1px] border-slate-300 hover:shadow-md focus-within:shadow-md transition-shadow"
+        className="w-full sm:max-w-2xl mt-10 rounded-2xl flex items-center space-x-3 px-2 md:px-4 py-3 border-[1px] border-slate-300 hover:shadow-md focus-within:shadow-md transition-shadow"
       >
         <input
           type="text"
           name="search"
           placeholder="Search the web..."
-          className="flex-grow text-lg focus-within:outline-none bg-transparent"
+          className="flex-grow text-base focus-within:outline-none bg-none"
           value={input || ""}
           onChange={(event) => setInput(event.target.value)}
         />

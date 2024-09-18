@@ -18,9 +18,9 @@ export default function SearchLayout({
       <Suspense>
         <SearchBar />
       </Suspense>
-      <Suspense>
+      {/* <Suspense>
         <SearchOptions />
-      </Suspense>
+      </Suspense> */}
       <div>{children}</div>
     </div>
   );

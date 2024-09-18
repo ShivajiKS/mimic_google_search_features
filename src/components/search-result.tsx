@@ -5,12 +5,13 @@ import React from "react";
 
 const SearchResult = (props: any) => {
   return (
-    <div className="mx-3 lg:mx-1">
+    <div>
       <p className="text-gray-600 text-md mb-3">
         About {props.data.searchInformation?.formattedTotalResults} result (
         {props.data.searchInformation?.formattedSearchTime} seconds)
       </p>
-      {props.data.items.map(
+
+      {props?.data?.items?.map(
         ({
           title,
           link,
@@ -22,9 +23,9 @@ const SearchResult = (props: any) => {
           formattedUrl: string;
           snippet: string;
         }) => (
-          <div key={title} className="max-w-3xl pb-5 ">
+          <div key={title} className="max-w-3xl pb-5">
             <div className="group">
-              <Link href={formattedUrl} className="text-sm">
+              <Link href={formattedUrl} className="text-sm break-words">
                 {formattedUrl}
               </Link>
               <Link href={link}>
