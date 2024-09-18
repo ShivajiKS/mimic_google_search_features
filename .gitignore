@@ -37,16 +37,8 @@ next-env.d.ts
 
 
 
-# https://developers.google.com/custom-search/v1/using_rest?hl=en
+API Key: https://developers.google.com/custom-search/v1/using_rest'
 
-# https://programmablesearchengine.google.com/controlpanel/overview
-
-# API_KEY= AIzaSyCF8bmFQPmaQlBtOrqZ1gcU9rJywpc6NqQ
-
-# CONTEXT_KEY = d1e8d6ae280cd4a05
-
-
-
-
+CONTEXT_KEY(CX):https://programmablesearchengine.google.com/controlpanel/all 
 
 

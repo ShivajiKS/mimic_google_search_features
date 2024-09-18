@@ -36,7 +36,7 @@ export default async function Page({ searchParams }: SearchParamProps) {
 
   const data = await response.json();
 
-  console.log("data isssssss", data);
+  // console.log("data isssssss", data);
 
   const items = data?.items;
 

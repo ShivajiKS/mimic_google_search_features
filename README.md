@@ -1,48 +1,50 @@
-## Getting Started
+# Project Title
 
-First, run the development server:
+I created a small website that incorporates advanced concepts like debouncing, caching, API aborting, and pagination. Through this project, I gained valuable experience in designing efficient and user-friendly web applications that optimize performance and data management.
+
+## Features
+
+- Debouncing: Reduces unnecessary API requests by waiting for a short pause in user input before sending a request.
+
+- Caching: Stores data locally after the first request, so the app doesn’t need to fetch the same data repeatedly, speeding up performance.
+
+- API Call Abortion: Cancels any ongoing API request when a new one is made, preventing old or unnecessary data from being processed.
+
+- Pagination: Breaks down large sets of data into smaller chunks, making it easier to load and view without slowing down the app.
+
+These features work together to make the app smoother, faster, and more responsive for users.
+
+## Tech Stack
+
+Typescript, React.js, Next.js, TailwindCSS
+
+## Screenshots
+
+![App Screenshot](./assets/home-page.png)
+![App Screenshot](./assets/search-result-page.png)
+
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/ShivajiKS/mimic_google_search_features.git
 ```
 
-## https://developers.google.com/custom-search/v1/using_rest : API Key
+Go to the project directory
 
-## https://programmablesearchengine.google.com/controlpanel/all " context cx key
-
-# h1
-
-## h2
-
-### h3
-
-#### h4
-
-##### h5
-
-###### h6
-
-- bold
-  - ssefdgggfgfg
-    - ddddddddd
-    1. ddddddd
-       1. jhgggggg
-       2. eeeeee
-
-```Bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```bash
+  cd mimic_google_search_features
 ```
 
-[](.\public\google_lens_icon.png)
+Install dependencies
+
+```bash
+  pnpm install
+```
+
+Start the server
+
+```bash
+  pnpm run dev
+```
